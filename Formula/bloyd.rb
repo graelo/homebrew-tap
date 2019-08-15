@@ -2,12 +2,12 @@
 class Bloyd < Formula
   desc "Personal floydhub-like cli"
   homepage "https://github.com/u0xy/bloyd"
-  version "0.2.1"
+  version "0.3.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/u0xy/bloyd/releases/download/v0.2.1/bloyd_0.2.1_Darwin_x86_64.tar.gz"
-    sha256 "78d6ad550f779270dc8812de707909ab9534d7cece2ee006325c216483afae05"
+    url "https://github.com/u0xy/bloyd/releases/download/v0.3.0/bloyd_0.3.0_Darwin_x86_64.tar.gz"
+    sha256 "41efbadecbc7a9b57e42e19a3b41c21781736f37ec44ff0efdc83d8315c9c71b"
   elsif OS.linux?
   end
 
