@@ -1,26 +1,27 @@
 class Doq < Formula
   include Language::Python::Virtualenv
 
-  desc "Docstring generator"
+  desc "Docstring generator for Python"
   homepage "https://github.com/heavenshell/py-doq"
-  url "https://files.pythonhosted.org/packages/e4/39/7c8d771f6703f84f9edf2f713a6f973b993997b7c09cecbc309666ce8239/doq-0.6.0.tar.gz"
-  sha256 "861e16d8f3553a46d2cd98fe087686bd9333c1987e7e3385f287e166f77a37d1"
+  url "https://files.pythonhosted.org/packages/35/a0/c22615949f5270e8a0819d5a1278330468eeb6f8bfe495f574c5a869b57e/doq-0.7.0.tar.gz"
+  sha256 "c323dc59857a1dbea3e7d71e73c6fb11a88a565c3a225b75e446f70f0659049b"
+  license "BSD-3-Clause"
 
   depends_on "python"
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
-    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
+    url "https://files.pythonhosted.org/packages/7a/0c/23cbcf515b5394e9f59a3e6629f26e1142b92d474ee0725a26aa5a3bcf76/Jinja2-3.0.0.tar.gz"
+    sha256 "ea8d7dd814ce9df6de6a761ec7f1cac98afe305b8cdc4aaae4e114b8d8ce24c5"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
-    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+    url "https://files.pythonhosted.org/packages/67/6a/5b3ed5c122e20c33d2562df06faf895a6b91b0a6b96a4626440ffe1d5c8e/MarkupSafe-2.0.0.tar.gz"
+    sha256 "4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527"
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/fe/24/c30eb4be8a24b965cfd6e2e6b41180131789b44042112a16f9eb10c80f6e/parso-0.7.0.tar.gz"
-    sha256 "908e9fae2144a076d72ae4e25539143d40b8e3eafbaeae03c1bfe226f4cdf12c"
+    url "https://files.pythonhosted.org/packages/5e/61/d119e2683138a934550e47fc8ec023eb7f11b194883e9085dca3af5d4951/parso-0.8.2.tar.gz"
+    sha256 "12b83492c6239ce32ff5eed6d3639d6a536170723c6f3f1506869f1ace413398"
   end
 
   def install
@@ -30,6 +31,27 @@ class Doq < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
 
-    assert_match version.to_s, shell_output("#{bin}/doq --version")
+    # Test that the docstring can be generated correctly for the following
+    # source code
+    source_code = <<~EOS
+      def compute(arg1, arg2: str) -> str:
+          pass
+    EOS
+    (testpath/"compute.py").write(source_code)
+
+    # Expected code with generated docstring
+    expected = <<~EOS
+      def compute(arg1, arg2: str) -> str:
+          """compute.
+
+          :param arg1:
+          :param arg2:
+          :type arg2: str
+          :rtype: str
+          """
+          pass
+    EOS
+
+    assert_equal expected, shell_output("#{bin}/doq -f #{testpath}/compute.py")
   end
 end
