@@ -1,5 +1,3 @@
-require 'formula'
-
 class Sshpass < Formula
   desc "Pass a password to ssh (insecure but practical)"
   homepage "https://sourceforge.net/projects/sshpass"
@@ -12,10 +10,10 @@ class Sshpass < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 
-  def test
+  test do
     system "sshpass"
   end
 end
