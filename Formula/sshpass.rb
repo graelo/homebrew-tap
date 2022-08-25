@@ -1,8 +1,8 @@
 class Sshpass < Formula
   desc "Pass a password to ssh (insecure but practical)"
   homepage "https://sourceforge.net/projects/sshpass"
-  url "https://downloads.sourceforge.net/project/sshpass/sshpass/1.08/sshpass-1.08.tar.gz"
-  sha256 "8bdacb8ca4ecf82c84a5effa2f75a8bf4ed9dd6f9d030f308fe11cffb3830b02"
+  url "https://downloads.sourceforge.net/project/sshpass/sshpass/1.09/sshpass-1.09.tar.gz"
+  sha256 "71746e5e057ffe9b00b44ac40453bf47091930cba96bbea8dc48717dedc49fb7"
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/sshpass-1.08"
