@@ -5,10 +5,10 @@ class Sshpass < Formula
   sha256 "71746e5e057ffe9b00b44ac40453bf47091930cba96bbea8dc48717dedc49fb7"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/sshpass-1.08"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "77672237ec21ee89706194e1016babad29c46fe09dd4be8b730c0262080b045b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d7f867910f7711d8d7fa6e7462c0dbc17c1fd49ca6349c5ee0395907eb4e998c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13c2b24a85896ea09ca2451f724350de8d275f4805382bf91b5f584d53c8680d"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/sshpass-1.09"
+    sha256 cellar: :any_skip_relocation, monterey:     "b9f6661c44e8969f8ad55d7dfbc22384855f9e94a3b52fe0133c3b4e4dd07275"
+    sha256 cellar: :any_skip_relocation, big_sur:      "04932de6f96980165c66f26aebac21d55cbe1052def35e71c34742b961dcc321"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8b3bc84b0a189f459a8d9bf7c8a593b80f2c3d08fd2cb8da74872150301a5fdb"
   end
 
   depends_on "gnu-sed"
