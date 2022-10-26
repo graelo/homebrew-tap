@@ -7,9 +7,10 @@ class TmuxBackup < Formula
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/tmux-backup-0.3.0"
-    sha256 cellar: :any_skip_relocation, monterey:     "665bbc19579f798425c04f19a2d6fa5ba5cd55d1b17c28e16dc801971661a6bc"
-    sha256 cellar: :any_skip_relocation, big_sur:      "796e644d5e6362d09a3d9c59d6e05ea44ad7ea14220e41ee100477913585ab17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3a1d0064eea9b58c5f786f1eb1719d6b0fc2ba27778759a691f9739d3c97ffa3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca56be07268814fae7fe4f96e1f5bf954afc98e0e0e51583168d292a927fc327"
+    sha256 cellar: :any_skip_relocation, monterey:      "665bbc19579f798425c04f19a2d6fa5ba5cd55d1b17c28e16dc801971661a6bc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "796e644d5e6362d09a3d9c59d6e05ea44ad7ea14220e41ee100477913585ab17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a1d0064eea9b58c5f786f1eb1719d6b0fc2ba27778759a691f9739d3c97ffa3"
   end
 
   depends_on "rust" => :build
