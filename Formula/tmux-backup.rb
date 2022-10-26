@@ -20,6 +20,6 @@ class TmuxBackup < Formula
   end
 
   test do
-    assert_match "#compdef tmux-backup", shell_output("#{bin}/tmux-backup -k 10 generate-completion zsh")
+    assert_match "#compdef tmux-backup", shell_output("#{bin}/tmux-backup generate-completion zsh")
   end
 end
