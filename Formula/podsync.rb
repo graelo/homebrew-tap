@@ -1,8 +1,8 @@
 class Podsync < Formula
   desc "Podcasts feed generator"
   homepage "https://github.com/graelo/podsync"
-  url "https://github.com/graelo/podsync/archive/refs/tags/v0.0.0.tar.gz"
-  sha256 "0ce2d186d86b22ad1c659d2784f101f56b1f8b2f80541da7e8dc428f7208c0eb"
+  url "https://github.com/graelo/podsync/archive/refs/tags/v0.0.1.tar.gz"
+  sha256 "411be321fea917e63631248c8fc773511a19a475ac7d41b38d9ff3002da7bb48"
   license "MIT"
 
   bottle do
