@@ -6,11 +6,10 @@ class Podsync < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/podsync-0.0.4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8474b3b0f477902ff3155f5ed3d936668b6e136ec687a1edb2384a5e5fd02a5"
-    sha256 cellar: :any_skip_relocation, monterey:      "4d08fae72a133dc17a477e12e5c42ff7c3c3d1b3ab6192632144674b0614af57"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3d058a6fd6d7a8a1ab79af4409c09ab58f84a2aa4192245342715d811e7a2132"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d5931a4d55a1dca12e82656c1e6fd359fef7d80d8ad785f211b8292a14dbcb3"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/podsync-0.0.5"
+    sha256 cellar: :any_skip_relocation, monterey:     "271259fc5db8d7cedd712b3c600d4d8700185df12b8455bf60aa9d291ddf0f3e"
+    sha256 cellar: :any_skip_relocation, big_sur:      "1644832138799c229d4ff7c38c72eccc4d2f693d6482faf7c5686ef3b9ed1da3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a538087c2f8e7cb3a6c33ee60798fb59c93c991a366ccc8b3101dc53b3e2b4e"
   end
 
   depends_on "rust" => :build
