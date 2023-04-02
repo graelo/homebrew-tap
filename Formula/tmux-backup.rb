@@ -13,7 +13,7 @@ class TmuxBackup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf90c24068cce0746e7580a909abedc63ca21f6104a89f7b19308598b7c574ce"
   end
 
-  depends_on "rust" => :build
+  depends_on "rust" => [:build, :test]
 
   def install
     system "cargo", "install", *std_cargo_args
