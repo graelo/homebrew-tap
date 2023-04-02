@@ -7,8 +7,9 @@ class Podsync < Formula
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/podsync-0.0.7"
-    sha256 cellar: :any_skip_relocation, monterey:     "653a3bdb81cdbfff734da82440aa71401ad33a7f3a9c0180cb62ccce8db0970f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2c487c420916d23f6b87a4ea31079f0428b5abc00512c0df3d848369adc305f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6570b4a7f131dd2944495ce5d04aa2c28a49a096d4d3560f5bc9eac9095ae950"
+    sha256 cellar: :any_skip_relocation, monterey:      "653a3bdb81cdbfff734da82440aa71401ad33a7f3a9c0180cb62ccce8db0970f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c487c420916d23f6b87a4ea31079f0428b5abc00512c0df3d848369adc305f8"
   end
 
   depends_on "rust" => [:build, :test] unless system "command", "--query", "cargo"
