@@ -5,7 +5,7 @@ class Podsync < Formula
   sha256 "084107ee31d698dc0c55dadd64b8808cae7f33bcaa35b3181728f33ee549565c"
   license "MIT"
 
-  depends_on "rust" => :build
+  depends_on "rust" => [:build, :test] unless system "command", "--query", "cargo"
 
   def install
     system "cargo", "install", *std_cargo_args
