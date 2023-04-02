@@ -13,7 +13,7 @@ class TmuxCopyrat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb852980d13b21b839bd65f8058795e94e4f36b03b760e950049244063a79c1b"
   end
 
-  depends_on "rust" => :build
+  depends_on "rust" => [:build, :test]
 
   def install
     system "cargo", "install", *std_cargo_args
