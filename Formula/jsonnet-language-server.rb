@@ -1,8 +1,8 @@
 class JsonnetLanguageServer < Formula
   desc "Language Server Protocol (LSP) server for Jsonnet (https://jsonnet.org)"
   homepage "https://github.com/grafana/jsonnet-language-server"
-  url "https://github.com/grafana/jsonnet-language-server/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "5c843bca9fc54effd00dd37bcfd9b2809aa15329f1120d4c730c11d0076f3468"
+  url "https://github.com/grafana/jsonnet-language-server/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "639f56e6160555d837f8816860c1007f5b4ed4227be1ee5612e56a711b26426a"
   license "AGPL-3.0-only"
 
   bottle do
@@ -13,7 +13,7 @@ class JsonnetLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bb04329fccee4030629dd6fdf9f6df1dd7b4b0a2ca90c23c58faa5eff6e1205"
   end
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, :test]
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
