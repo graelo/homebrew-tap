@@ -6,10 +6,9 @@ class TmuxCopyrat < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/tmux-copyrat-0.5.2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f7162d27d289b3206c78bf819ba4715c1cd862e59c5bb42e4d6851fc46e5fc0"
-    sha256 cellar: :any_skip_relocation, monterey:      "e5f38e952ab2fe3fb01d4fbe87c101a13738ef13243bc43543af11f6b8794887"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91b5a2065ac40f3874508dca5a06577963258473d88431634f89f3f6f5426abf"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/tmux-copyrat-0.5.3"
+    sha256 cellar: :any_skip_relocation, monterey:     "171b444d4423860e1117ff559bb11c6bc84b06617879122f996851d28a79a2eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6dff5934f934fbcfb03f30ebb3515de7b6f741d8dc12db74e20493ac93f4ec6e"
   end
 
   depends_on "rust" => [:build, :test]
