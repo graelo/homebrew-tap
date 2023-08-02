@@ -6,8 +6,9 @@ class Pumas < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/pumas-0.0.9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b54c4e8a6030081c8d10dc4803d831570fda9c913070533645f4aac8ff42e6c"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/pumas-0.0.10"
+    sha256 cellar: :any_skip_relocation, monterey:     "f503465bcd11716306dc8b431aaf8692f7cdfbd2d2cbc81e3de8cb067e1be846"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e12cba7787f9c3811f9d0d8a389f926d9db06a587aec9d75e4846b1f7dfc6dbf"
   end
 
   depends_on "rust" => [:build, :test]
