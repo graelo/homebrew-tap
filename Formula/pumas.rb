@@ -7,8 +7,7 @@ class Pumas < Formula
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/pumas-0.0.11"
-    sha256 cellar: :any_skip_relocation, monterey:     "2dcefdcc4f5fb4391e9401840ee95f1f4ac0f423480856d8004911ba5011861a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "84f74d4397c08c50e978afca8ddbb393dd5ac66c247c79bd5c05b0fc5c291753"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "48995bb1eb8c34429bc18fc6a9016744214959bbae1f6614154a5f119a562b98"
   end
 
   depends_on "rust" => [:build, :test]
