@@ -1,8 +1,8 @@
 class TmuxBackup < Formula
   desc "Backup & restore Tmux sessions"
   homepage "https://github.com/graelo/tmux-backup"
-  url "https://github.com/graelo/tmux-backup/archive/refs/tags/v0.5.3.tar.gz"
-  sha256 "35deec28cc6fb613f2b4c193ecf89ff048e9c1e7ec57ea92327177c509306fe9"
+  url "https://github.com/graelo/tmux-backup/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "860d4a623439d1b35a2799613615f65ab9709a1c92311bb0c5d76683c54577a5"
   license "MIT"
 
   bottle do
