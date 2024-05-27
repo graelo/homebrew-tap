@@ -6,6 +6,7 @@ class ValeLs < Formula
   license "MIT"
 
   depends_on "rust" => :build
+  depends_on "pkg-config" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
