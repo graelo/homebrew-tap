@@ -7,6 +7,13 @@ class HuggingfaceCliFull < Formula
   sha256 "b100d853465d965733964d123939ba287da60a547087783ddff8a323f340332b"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/huggingface-cli-full-0.26.2"
+    sha256 cellar: :any,                 arm64_sonoma: "abff44e6597190c6cf09b7e68b12999d77f5d0d4410ed49b049b837474827681"
+    sha256 cellar: :any,                 ventura:      "8bc541e28d74ff9cfab8dca253a8c2b33cdbe2067c26f2e05041379278ccf0a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3170fdf827985a545799ff12170ac78d00e31ea843e8877778f17cd039b0c6c5"
+  end
+
   depends_on "maturin" => :build
   depends_on "rust" => :build
   depends_on "certifi"
