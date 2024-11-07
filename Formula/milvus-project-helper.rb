@@ -7,6 +7,13 @@ class MilvusProjectHelper < Formula
   sha256 "e20dcccf48048de2ecc171b82265101af8d63f35b023ca7c2c877c5f0bd2ebbe"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/milvus-project-helper-0.1.1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "6d9f6c113226055feccdd6a614410c4fe433d151b51815d5bf72e974176ba169"
+    sha256 cellar: :any_skip_relocation, ventura:      "41e542ac93170ebf424b12c5712cfd235fb187b86039a5d065cf59aa2848a65a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c1fdd8913e538e032a5e2b22df32b75ed20b46e275675a56292a60a4b77a99d8"
+  end
+
   depends_on "cython" => :build
   depends_on "ninja" => :build
   depends_on "numpy"
