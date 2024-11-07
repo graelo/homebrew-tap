@@ -3,8 +3,8 @@ class MilvusProjectHelper < Formula
 
   desc "Help create Milvus database, role and user"
   homepage "https://github.com/graelo/milvus-project-helper"
-  url "https://github.com/graelo/milvus-project-helper/archive/refs/tags/0.1.0.tar.gz"
-  sha256 "5389e1f42a8f6524776f81969e09bd0951126507994d135853149c5d4cd48cda"
+  url "https://github.com/graelo/milvus-project-helper/archive/refs/tags/0.1.1.tar.gz"
+  sha256 "e20dcccf48048de2ecc171b82265101af8d63f35b023ca7c2c877c5f0bd2ebbe"
   license "MIT"
 
   depends_on "cython" => :build
