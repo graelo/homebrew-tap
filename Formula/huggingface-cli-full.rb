@@ -8,10 +8,10 @@ class HuggingfaceCliFull < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/huggingface-cli-full-0.26.2"
-    sha256 cellar: :any,                 arm64_sonoma: "abff44e6597190c6cf09b7e68b12999d77f5d0d4410ed49b049b837474827681"
-    sha256 cellar: :any,                 ventura:      "8bc541e28d74ff9cfab8dca253a8c2b33cdbe2067c26f2e05041379278ccf0a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3170fdf827985a545799ff12170ac78d00e31ea843e8877778f17cd039b0c6c5"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/huggingface-cli-full-0.26.3"
+    sha256 cellar: :any,                 arm64_sonoma: "963bf4e1b9e965478936e6d80c878666403e5b80bbecb4763f42ee0310b5425b"
+    sha256 cellar: :any,                 ventura:      "df7cdd94711b6804302a623013daca9e9d56ab9498bd47f3a8a43d8a1dff7432"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ab4100e508ef42af220dcc73bb00c4dce3e4fbd1d671561ac9c57e561a2b7819"
   end
 
   depends_on "maturin" => :build
