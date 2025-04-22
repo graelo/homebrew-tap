@@ -41,6 +41,16 @@ class HuggingfaceCliFull < Formula
     sha256 "e52c77ef398680bbd6a98c0e628fbc469491282981209907bbc8aea76a04fdc6"
   end
 
+  resource "hf-transfer" do
+    url "https://files.pythonhosted.org/packages/1a/eb/8fc64f40388c29ce8ce3b2b180a089d4d6b25b1d0d232d016704cb852104/hf_transfer-0.1.9.tar.gz"
+    sha256 "035572865dab29d17e783fbf1e84cf1cb24f3fcf8f1b17db1cfc7fdf139f02bf"
+  end
+
+  resource "hf-xet" do
+    url "https://files.pythonhosted.org/packages/95/68/4c363b2e62cb3dbe12d2257ba9b22f101384692d4b9727c5f72433472cff/hf_xet-1.0.3.tar.gz"
+    sha256 "a6d16861a06dd4b8f7229c16b392c5fb8b9588ced89a6ee9bc3e66227f794353"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
     sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
@@ -76,6 +86,26 @@ class HuggingfaceCliFull < Formula
     sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
+  resource "InquirerPy" do
+    url "https://files.pythonhosted.org/packages/64/73/7570847b9da026e07053da3bbe2ac7ea6cde6bb2cbd3c7a5a950fa0ae40b/InquirerPy-0.3.4.tar.gz"
+    sha256 "89d2ada0111f337483cb41ae31073108b2ec1e618a49d7110b0d7ade89fc197e"
+  end
+
+  resource "pfzy" do
+    url "https://files.pythonhosted.org/packages/d9/5a/32b50c077c86bfccc7bed4881c5a2b823518f5450a30e639db5d3711952e/pfzy-0.3.4.tar.gz"
+    sha256 "717ea765dd10b63618e7298b2d98efd819e0b30cd5905c9707223dceeb94b3f1"
+  end
+
+  resource "prompt-toolkit" do
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
+  end
+
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+  end
+
   def install
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install "pip"
@@ -84,12 +114,17 @@ class HuggingfaceCliFull < Formula
     resources.each do |r|
       r.stage do
         ohai "Installing #{r.name}"
-        system libexec/"bin/pip", "install", "--no-deps", "."
+        if r.name == "hf-xet"
+          ohai "Custom hf-xet install"
+          system libexec/"bin/pip", "install", "--no-deps", "hf_xet"
+        else
+          system libexec/"bin/pip", "install", "--no-deps", "."
+        end
       end
     end
 
     # Install with the hf-transfer extra
-    system libexec/"bin/pip", "install", "--no-deps", ".[cli,hf-transfer]"
+    system libexec/"bin/pip", "install", "--no-deps", ".[cli,hf-transfer,hf-xet]"
 
     (bin/"huggingface-cli").write_env_script "#{libexec}/bin/huggingface-cli",
       HF_HUB_ENABLE_HF_TRANSFER: "1"
