@@ -5,6 +5,12 @@ class SpecKitMcp < Formula
   sha256 "cd48911a52905e6d46b399b60bf46297a7530d6eb237cd4b797e3138cb7b9448"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/spec-kit-mcp-0.1.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "748625460237c2a5e346a3766e4cad970e09c7bae1727faf6f8dc9194a6d0cd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96d7e096dea8b481b9ee28bc71388afbd196ba75992af633fdd0c6dc4bb131c0"
+  end
+
   depends_on "rust" => :build
 
   def install
