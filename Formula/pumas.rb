@@ -1,8 +1,8 @@
 class Pumas < Formula
   desc "Power Usage Monitor for Apple Silicon"
   homepage "https://github.com/graelo/pumas"
-  url "https://github.com/graelo/pumas/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "4765d59482a79c663c7eef38cd1f8a6dcc0328a8551d781398b0225481ba1ad7"
+  url "https://github.com/graelo/pumas/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "187c6e67d61506f4dc767647a5c2064339a4055e9327ee57ef9c50932cadcdb7"
   license "MIT"
 
   bottle do
