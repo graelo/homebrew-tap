@@ -1,8 +1,8 @@
 class JsonnetLanguageServer < Formula
   desc "Language Server Protocol (LSP) server for Jsonnet (https://jsonnet.org)"
   homepage "https://github.com/grafana/jsonnet-language-server"
-  url "https://github.com/grafana/jsonnet-language-server/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "616fdfc5a5c9447762c1c1bb1522053d923d0415a68937ec48385eca5d49c2fa"
+  url "https://github.com/grafana/jsonnet-language-server/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "7d51fbd633475f449772c95e410ffb498df5e4e2102c7ac49072a76f38a5b98b"
   license "AGPL-3.0-only"
 
   bottle do
