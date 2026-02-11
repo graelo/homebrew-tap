@@ -6,10 +6,9 @@ class JsonnetLanguageServer < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/jsonnet-language-server-0.16.0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "a26358e65e8e5ee18d55b3eb5cb4709f683f41b8e399a937c7b420ffa65f9120"
-    sha256 cellar: :any_skip_relocation, ventura:      "6320a37a82b1b461bf4ff1c3dd6bf5245e159d5baae34f1063ba872c296484cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d4a7d313d4fe4ca9ec6272e92a4e7a81aa0f210f200bab10a89582473c33df02"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/jsonnet-language-server-0.17.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6ed42bd0315b92de507b54543637a74614a64cf02208e4e182a7fa2e544adb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b148164841a8dac86a24d5a85c0a5cf768574a5289ee6dae5e0c2dc3a9f5a253"
   end
 
   depends_on "go" => [:build, :test]
