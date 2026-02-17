@@ -5,6 +5,12 @@ class GhBoard < Formula
   sha256 "07875b7b18c67ef89731b500effa96f365e056f609bf1058788fb8b339700f9a"
   license ""
 
+  bottle do
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/gh-board-0.1.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c853048157d42de9a73e2528b17fd38cac32eaabe5fcf9953ae0c6b4a01562d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a61f7e2d9d3f783c30ae1ea1379594486cd84243751da7af388fc7571268f060"
+  end
+
   depends_on "rust" => :build
 
   def install
