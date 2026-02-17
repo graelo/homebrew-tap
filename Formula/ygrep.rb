@@ -6,9 +6,9 @@ class Ygrep < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/ygrep-3.0.1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "21352bab2e04e5a71c469a61e03e3880c709887bd257e08ac7b822e68108a417"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76acb6cfe54932a0aacc9ae95a5acf607f05ef9e9ca695c438e9d10503a47b82"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/ygrep-3.0.3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0991db85b12d6222e837531e4abc08ebfce8cd1f720140a757d0836eaae34f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a38993564a26bfc73ceb16aebac86cb361f0f170a40e52b4b561e4f119c23e4"
   end
 
   depends_on "rust" => :build
