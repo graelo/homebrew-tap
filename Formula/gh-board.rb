@@ -6,9 +6,9 @@ class GhBoard < Formula
   license ""
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/gh-board-0.4.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b52f7e2639100ab49d86dcc3fb033ee3e256c6ea31f168b5c640184fc0637fff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c96fbf386ed0c03de17cb9b8b8b6af8b9267fe892e135cd83db34abf8c385ad1"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/gh-board-0.5.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da068824e7eae2aebbea7dc951f4e24b8a6eb8bc3a9ce33c6ad2cdb70283c08f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e23da9da21c1b6c64c6e8f09fd9d25f9725afbe62856781a9149ce5510146a3b"
   end
 
   depends_on "rust" => :build
