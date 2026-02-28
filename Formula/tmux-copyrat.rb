@@ -1,8 +1,8 @@
 class TmuxCopyrat < Formula
   desc "Tmux-copycat on Rust steroids"
   homepage "https://github.com/graelo/tmux-copyrat"
-  url "https://github.com/graelo/tmux-copyrat/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "260d1d90b752f1f6fdeedadae4f0cacb11bd91d4d9ecfe10c5cbefc6af772911"
+  url "https://github.com/graelo/tmux-copyrat/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "7ac1bcf1eabd00d9b6db5123563008dba6790e52734f164420c00e26b72017ab"
   license "MIT"
 
   bottle do
