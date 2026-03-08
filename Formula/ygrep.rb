@@ -1,8 +1,8 @@
 class Ygrep < Formula
   desc "Fast, local, indexed code search tool optimized for AI coding assistants"
   homepage "https://github.com/yetidevworks/ygrep"
-  url "https://github.com/yetidevworks/ygrep/archive/refs/tags/v3.2.2.tar.gz"
-  sha256 "bcc1dc4c1cfe7de09c647bb59d0e521081e8e04f4013199440e6bbf57c2fc4bc"
+  url "https://github.com/yetidevworks/ygrep/archive/refs/tags/v3.2.3.tar.gz"
+  sha256 "65f883760ec7e23a48d4a9f16fc5ac5e501e7d2e0566ce58791b556cbe5023bf"
   license "MIT"
 
   bottle do
