@@ -1,8 +1,8 @@
 class GhBoard < Formula
   desc "Fast terminal dashboard for GitHub PRs, issues, and notifications"
   homepage "https://github.com/graelo/gh-board"
-  url "https://github.com/graelo/gh-board/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "c0db7684d497e651f4e6f4afd0bada7ad8f3757b173237a8ec0c2a47e2e627b3"
+  url "https://github.com/graelo/gh-board/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "ac72bb67de6b92cda20f24c5b7dd1cc7aeb639c30dee6c97a370711cf42615b7"
   license ""
 
   bottle do
