@@ -6,9 +6,10 @@ class Dvoratt < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/dvoratt-0.1.2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a1efcf2d326c86c0b5cb5a785767e2f347fcf2599b64219594b6a17e2b85412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708d791bb96232e66f4c1889cd18563ced9a73e8f2bec25775c6bb4f66591dc7"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/dvoratt-0.1.3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b00b0bf9e41310ecf951cb0a13108ce7f4aeaf2763f401cf59136962b86cfd1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "180c18f4c7d99155e3c2e936e532114541eb8f236a39fca6cba47a4fa365bf0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3702de86568d91fb8ddc745e6661bae3ba88aacfc3b1da8f70e7fb4127f7f224"
   end
 
   depends_on "rust" => [:build, :test]
