@@ -11,8 +11,8 @@ class Pumas < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "31232cde0b92e903138dedf26acd77c7d9f98c49e1de8fe5a6eb91b686f4c4d6"
   end
 
-  depends_on :macos
   depends_on "rust" => [:build, :test]
+  depends_on :macos
 
   def install
     system "cargo", "install", *std_cargo_args
