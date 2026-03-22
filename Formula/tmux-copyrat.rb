@@ -1,5 +1,5 @@
 class TmuxCopyrat < Formula
-  desc "Tmux-copycat on Rust steroids"
+  desc "Highlight and copy pattern-matched text from tmux panes"
   homepage "https://github.com/graelo/tmux-copyrat"
   url "https://github.com/graelo/tmux-copyrat/archive/refs/tags/v0.8.4.tar.gz"
   sha256 "97be8883d174712d77b8eff8edbbb4017794906ee22fa3a6174a2dfc01083511"
@@ -16,6 +16,7 @@ class TmuxCopyrat < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    man1.install "man/tmux-copyrat.1", "man/copyrat.1"
   end
 
   test do
