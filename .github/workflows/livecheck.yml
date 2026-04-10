@@ -2,7 +2,7 @@ name: Livecheck & bump casks
 
 on:
   schedule:
-    - cron: "0 8 * * *" # daily at 08:00 UTC
+    - cron: '0 6,18 * * *' # daily at 06:00 and 18:00 UTC
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,7 @@ jobs:
   bump:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Tap self
         run: |
