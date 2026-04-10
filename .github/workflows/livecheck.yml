@@ -1,0 +1,71 @@
+name: Livecheck & bump casks
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # daily at 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tap self
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/graelo"
+          ln -sfn "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/graelo/homebrew-tap"
+
+      - name: Livecheck all casks
+        id: livecheck
+        run: |
+          outdated=$(brew livecheck --cask --tap graelo/tap --json 2>/dev/null \
+            | jq -r '.[] | select(.version.outdated == true) | "\(.cask)=\(.version.latest)"')
+          {
+            echo "outdated<<EOF"
+            echo "$outdated"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          if [ -z "$outdated" ]; then
+            echo "has_updates=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_updates=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump outdated casks
+        if: steps.livecheck.outputs.has_updates == 'true'
+        run: |
+          while IFS='=' read -r cask version; do
+            [ -z "$cask" ] && continue
+            echo "Bumping $cask to $version"
+
+            # Download and compute SHA256
+            url=$(brew info --cask --json=v2 "graelo/tap/$cask" \
+              | jq -r '.casks[0].url' \
+              | sed "s/#{version}/$version/g")
+            sha256=$(curl -sL "$url" | shasum -a 256 | awk '{print $1}')
+
+            # Update the cask file
+            cask_file="Casks/${cask}.rb"
+            sed -i '' "s/version \".*\"/version \"$version\"/" "$cask_file"
+            sed -i '' "s/sha256 \".*\"/sha256 \"$sha256\"/" "$cask_file"
+          done <<< "${{ steps.livecheck.outputs.outdated }}"
+
+      - name: Create PR
+        if: steps.livecheck.outputs.has_updates == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          branch="livecheck/$(date +%Y%m%d)"
+          git checkout -b "$branch"
+          git add Casks/
+          git commit -m "bump casks via livecheck"
+          git push -u origin "$branch"
+          gh pr create \
+            --title "Bump casks ($(date +%Y-%m-%d))" \
+            --body "Automated version bump from livecheck." \
+            --base main
