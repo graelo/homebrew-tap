@@ -22,8 +22,10 @@ jobs:
 
       - name: Livecheck all casks
         id: livecheck
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          outdated=$(brew livecheck --cask --tap graelo/tap --json 2>/dev/null \
+          outdated=$(brew livecheck --cask --tap graelo/tap --json \
             | jq -r '.[] | select(.version.outdated == true) | "\(.cask)=\(.version.latest)"')
           {
             echo "outdated<<EOF"
