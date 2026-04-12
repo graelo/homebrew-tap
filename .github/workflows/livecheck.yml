@@ -40,21 +40,18 @@ jobs:
 
       - name: Bump outdated casks
         if: steps.livecheck.outputs.has_updates == 'true'
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           while IFS='=' read -r cask version; do
             [ -z "$cask" ] && continue
             echo "Bumping $cask to $version"
-
-            # Download and compute SHA256
-            url=$(brew info --cask --json=v2 "graelo/tap/$cask" \
-              | jq -r '.casks[0].url' \
-              | sed "s/#{version}/$version/g")
-            sha256=$(curl -sL "$url" | shasum -a 256 | awk '{print $1}')
-
-            # Update the cask file
-            cask_file="Casks/${cask}.rb"
-            sed -i '' "s/version \".*\"/version \"$version\"/" "$cask_file"
-            sed -i '' "s/sha256 \".*\"/sha256 \"$sha256\"/" "$cask_file"
+            brew bump-cask-pr "graelo/tap/$cask" \
+              --version "$version" \
+              --no-audit \
+              --no-browse \
+              --no-style \
+              --write-only
           done <<< "${{ steps.livecheck.outputs.outdated }}"
 
       - name: Create PR
