@@ -6,10 +6,44 @@ on:
   pull_request:
 
 jobs:
+  detect-runner-os:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    outputs:
+      macos-only: ${{ steps.check.outputs.macos-only }}
+    steps:
+      - name: Check out PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect if changed formulae are macOS-only
+        id: check
+        run: |
+          changed_formulae=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'Formula/*.rb')
+          if [ -z "$changed_formulae" ]; then
+            echo "macos-only=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          macos_only=true
+          for f in $changed_formulae; do
+            if ! grep -q 'depends_on :macos' "$f"; then
+              macos_only=false
+              break
+            fi
+          done
+          echo "macos-only=$macos_only" >> "$GITHUB_OUTPUT"
+
   test-bot:
+    needs: detect-runner-os
+    if: always()
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+        exclude:
+          - os: ${{ needs.detect-runner-os.outputs.macos-only == 'true' && 'ubuntu-latest' || 'excluded-noop' }}
+          - os: ${{ needs.detect-runner-os.outputs.macos-only == 'true' && 'ubuntu-24.04-arm' || 'excluded-noop' }}
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
