@@ -4,11 +4,16 @@ on:
     types:
       - labeled
 
+permissions: {}
+
 env:
   HOMEBREW_NO_INSTALL_FROM_API: 1
 
 jobs:
   pr-pull:
+    permissions:
+      contents: write
+      pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
     runs-on: macos-latest
     steps:

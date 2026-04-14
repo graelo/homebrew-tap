@@ -1,0 +1,8 @@
+rules:
+  dangerous-triggers:
+    ignore:
+      - publish.yml
+  unpinned-uses:
+    ignore:
+      - publish.yml
+      - tests.yml
