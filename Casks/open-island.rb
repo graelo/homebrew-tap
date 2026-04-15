@@ -1,6 +1,6 @@
 cask "open-island" do
-  version "1.0.21"
-  sha256 "a3ea0765e5a4aea6d5fc4a85df5a48935b3ec906e3a0d17aa3ef04da40fb9c2e"
+  version "1.0.22"
+  sha256 "7584ba8e93bb3b122f46ac52e69abc1bec6bfe69c705ec50dc8a13617878bd39"
 
   url "https://github.com/Octane0411/open-vibe-island/releases/download/v#{version}/Open.Island.dmg"
   name "Open Island"
