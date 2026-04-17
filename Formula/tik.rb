@@ -6,10 +6,10 @@ class Tik < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/tik-0.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cf946900a975e38d9ce2b1b513156e3277a83b1468b2998d6682710b2e4a93c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14e5ec57cb28703b6594224866bc77a36bba2b096337f7bfbe3a3265f46bdba1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54d4c990a400acebc2715c88cdf2887a214b4c4e1c60fed0fcd5866ebc7e21f5"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/tik-0.1.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9565dc1de81df4a440f23068f7e1d77bc24497df780170b0866f3f3d76a882e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97a86db9cda18ef316a2de22c8387e8355f675030faa5b24a5111fa0232f842c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67cc4433f0f319cb06d920a7f67094f2b25fdffdc063a38e7155909c50249f4f"
   end
 
   depends_on "rust" => [:build, :test]
