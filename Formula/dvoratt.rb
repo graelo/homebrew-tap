@@ -1,8 +1,8 @@
 class Dvoratt < Formula
   desc "Dvorak Typing Practice Terminal App"
   homepage "https://github.com/graelo/dvoratt"
-  url "https://github.com/graelo/dvoratt/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "f04935d78b62bb549422321f7e4ddd2e373676cec69c1851027894d8147b1bbf"
+  url "https://github.com/graelo/dvoratt/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "4759dfa906b19ba18ec9e038a11a2e208c35f81fb38a9a0417adaa4259a87870"
   license "MIT"
 
   bottle do
