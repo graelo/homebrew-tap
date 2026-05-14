@@ -1,8 +1,8 @@
 class GitPerms < Formula
   desc "Store and restore Unix file permissions across git operations"
   homepage "https://github.com/graelo/git-perms"
-  url "https://github.com/graelo/git-perms/archive/refs/tags/v0.0.0.tar.gz"
-  sha256 "27e25702114d480394ab1c197b513c6919d275d20559d9cbe88096d2538952f8"
+  url "https://github.com/graelo/git-perms/archive/refs/tags/v0.0.1.tar.gz"
+  sha256 "c7794eac6f66737fcc13f0f18d14bbbaa4696b12fd988a7f890b9e649b561102"
   license "Apache-2.0"
 
   bottle do
