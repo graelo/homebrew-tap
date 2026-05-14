@@ -1,8 +1,8 @@
 class Tik < Formula
   desc "Count LLM tokens in text files"
   homepage "https://github.com/graelo/tik"
-  url "https://github.com/graelo/tik/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "92921ed43dc5f22f31d52d89209e1b7b791c37a38b01ee28d9b695b6bba1eb4e"
+  url "https://github.com/graelo/tik/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "221d3837f7a210e5c4a49f32fa428e56846c110844f4dadfbf01d04e711b0238"
   license "MIT"
 
   bottle do
