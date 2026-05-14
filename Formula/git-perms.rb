@@ -6,10 +6,10 @@ class GitPerms < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/git-perms-0.0.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "861a7505dc4395100c05e20c7e505cdb93ccd11c44f1cd3591ddcb7c16cb4e81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9a29cd5219bf7aa9241e09ab61843a3adb545d2dfeb041ff31a367fe20b60ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b46a3924da0c7554bb9d1fa87f327bdfbfbe03d20de0471e4335bd730a4d2551"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/git-perms-0.0.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4286f32fadac460843dd36d5280a5a82e3919f264ea3fdc1d6ce32913a67143"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "490820703411e2e5ccdfaaf4c9eaa1c4cb32ce6698df7e3e77584e57f2f239be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f890f234f043b94725b1fa399357c33eeb7832d97c8dfafc4f9cba51ec800089"
   end
 
   depends_on "rust" => :build
