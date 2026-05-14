@@ -3,7 +3,7 @@ class GhBoard < Formula
   homepage "https://github.com/graelo/gh-board"
   url "https://github.com/graelo/gh-board/archive/refs/tags/v0.16.0.tar.gz"
   sha256 "7bd3418c4ce57bcb2434191d80eefb657fc5bd349e61765b5738903e04933b3f"
-  license ""
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/gh-board-0.16.0"

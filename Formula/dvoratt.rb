@@ -3,7 +3,7 @@ class Dvoratt < Formula
   homepage "https://github.com/graelo/dvoratt"
   url "https://github.com/graelo/dvoratt/archive/refs/tags/v0.1.6.tar.gz"
   sha256 "a56d284e1227448b3d207f14e13f6cd7ab0eb7218c16429a548d07f2dead6640"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/dvoratt-0.1.6"

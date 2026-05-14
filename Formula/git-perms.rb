@@ -3,7 +3,7 @@ class GitPerms < Formula
   homepage "https://github.com/graelo/git-perms"
   url "https://github.com/graelo/git-perms/archive/refs/tags/v0.0.1.tar.gz"
   sha256 "c7794eac6f66737fcc13f0f18d14bbbaa4696b12fd988a7f890b9e649b561102"
-  license "Apache-2.0"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/git-perms-0.0.1"

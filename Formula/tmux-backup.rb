@@ -3,7 +3,7 @@ class TmuxBackup < Formula
   homepage "https://github.com/graelo/tmux-backup"
   url "https://github.com/graelo/tmux-backup/archive/refs/tags/v0.5.17.tar.gz"
   sha256 "ba850cbc490c3dcc3d7877acd86d891de70cc070d0b183856ddcf89f3756a1bd"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/tmux-backup-0.5.17"

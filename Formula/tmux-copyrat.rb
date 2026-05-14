@@ -3,7 +3,7 @@ class TmuxCopyrat < Formula
   homepage "https://github.com/graelo/tmux-copyrat"
   url "https://github.com/graelo/tmux-copyrat/archive/refs/tags/v0.9.0.tar.gz"
   sha256 "101289b358889b9ffc64efc96d72d61afeeab326f27f2a683b4a15235db5ec31"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/tmux-copyrat-0.9.0"

@@ -3,7 +3,7 @@ class Tik < Formula
   homepage "https://github.com/graelo/tik"
   url "https://github.com/graelo/tik/archive/refs/tags/v0.1.2.tar.gz"
   sha256 "221d3837f7a210e5c4a49f32fa428e56846c110844f4dadfbf01d04e711b0238"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/tik-0.1.2"

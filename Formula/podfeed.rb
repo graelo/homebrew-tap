@@ -3,7 +3,7 @@ class Podfeed < Formula
   homepage "https://github.com/graelo/podfeed"
   url "https://github.com/graelo/podfeed/archive/refs/tags/v0.3.3.tar.gz"
   sha256 "267cd6d58ae7da8d0624a21dfb47cb0a5ec3cb3d2a7767ad835b566026502f2e"
-  license "MIT"
+  license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/podfeed-0.3.3"
