@@ -6,10 +6,10 @@ class GcodeLanguageServer < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/gcode-language-server-0.0.1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb6cd882ef5c6a3cf8f8997557168678154a3dc23413c53b29bbfe11bf491270"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6e742a54c696ff2058962c2f48ed44f953855a2b0a2fd746f11a1cb74786e00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d477383397f1c56733341690db7d052b08082e384284b10ad4c4fe852c92fbf"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/gcode-language-server-0.0.2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a11cd9d0b7af3865a8c6c2936f87a0122c95b9f8fe00ee4a19290300987cf96a"
+    sha256 cellar: :any,                 arm64_linux:   "4b5dffe553efece387813f8ffaa2d4d9dbedd1992922b6df32c2507521cd64d5"
+    sha256 cellar: :any,                 x86_64_linux:  "80ee0a5cb6833b6665d0f4de2fc1aea9887ead62cd22727d31c5016ea5d7c90d"
   end
 
   depends_on "rust" => :build
