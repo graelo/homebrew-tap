@@ -54,6 +54,8 @@ jobs:
           - os: ${{ needs.detect-runner-os.outputs.macos-only == 'true' && 'ubuntu-latest' || 'excluded-noop' }}
           - os: ${{ needs.detect-runner-os.outputs.macos-only == 'true' && 'ubuntu-24.04-arm' || 'excluded-noop' }}
     runs-on: ${{ matrix.os }}
+    env:
+      HOMEBREW_NO_REQUIRE_TAP_TRUST: 1
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
