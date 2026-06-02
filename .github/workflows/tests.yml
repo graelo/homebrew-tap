@@ -73,6 +73,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
+      - name: Install Bubblewrap (Linux sandbox)
+        if: runner.os == 'Linux'
+        run: sudo apt-get install -y bubblewrap
+
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup
