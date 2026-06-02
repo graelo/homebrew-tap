@@ -1,8 +1,8 @@
 class GcodeLanguageServer < Formula
   desc "LSP server for GCode"
   homepage "https://github.com/graelo/gcode-language-server"
-  url "https://github.com/graelo/gcode-language-server/archive/refs/tags/v0.0.1.tar.gz"
-  sha256 "1ff16679d528a2f2b057d071cdc0899dfd8f1a8aba5e03abdf6c3ded8d4fc723"
+  url "https://github.com/graelo/gcode-language-server/archive/refs/tags/v0.0.2.tar.gz"
+  sha256 "de6b94ddd8bdb9ad9aba1953f788b955cceb70c6947ab99f81e24a45295b39ad"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
