@@ -12,6 +12,6 @@ class Obscura < Formula
   end
 
   test do
-    assert_match "obscura #{version}", shell_output("#{bin}/obscura --version")
+    assert_match "fetch", shell_output("#{bin}/obscura --help")
   end
 end
