@@ -5,6 +5,12 @@ class LeanCtx < Formula
   sha256 "2ea734c9377f3b3f4adca105a1e045f902e605e6de7561ec49445ec88d41db5a"
   license "Apache-2.0"
 
+  # Upstream carries non-version tags (dates, branch names), so match semver only.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     root_url "https://github.com/graelo/homebrew-tap/releases/download/lean-ctx-3.4.5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3577c952f5933592b9f7eb03d84382d541004c3e3c813058fe29a35badf61be1"

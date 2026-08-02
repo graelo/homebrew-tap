@@ -1,16 +1,18 @@
-name: Livecheck & bump casks
+name: Livecheck & bump
 
 on:
   schedule:
     - cron: '0 18 * * 2,5,0' # Tuesday, Friday, Sunday at 18:00 UTC
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 jobs:
-  bump:
+  # Casks carry no bottles, so all bumps can travel in a single PR.
+  bump-casks:
+    permissions:
+      contents: write # push the bump branch
+      pull-requests: write # open the PR
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -75,3 +77,76 @@ jobs:
             --title "Bump casks ($(date +%Y-%m-%d))" \
             --body "Automated version bump from livecheck." \
             --base main
+
+  # Formulae need bottles, which tests.yml builds per PR and publish.yml pulls
+  # via the `pr-pull` label, so each formula gets its own PR.
+  bump-formulae:
+    permissions:
+      contents: write # push the bump branches
+      pull-requests: write # open and query the PRs
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Tap self
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/graelo"
+          ln -sfn "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/graelo/homebrew-tap"
+
+      - name: Livecheck all formulae
+        id: livecheck
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # huggingface-cli-full: `resource` blocks need regenerating by hand
+          # (scripts/create-resource-blocks.py), so never bump it automatically.
+          SKIP: huggingface-cli-full
+        run: |
+          outdated=$(brew livecheck --formula --tap graelo/tap --json \
+            | jq -r --arg skip "$SKIP" '
+                ($skip | split(" ")) as $s
+                | .[]
+                | select(.version.outdated == true)
+                | select(.formula as $f | $s | index($f) | not)
+                | "\(.formula)=\(.version.latest)"')
+          {
+            echo "outdated<<EOF"
+            echo "$outdated"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open one PR per outdated formula
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          OUTDATED: ${{ steps.livecheck.outputs.outdated }}
+        run: |
+          [ -z "${OUTDATED//[[:space:]]/}" ] && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+
+          while IFS='=' read -r formula version; do
+            [ -z "$formula" ] && continue
+            branch="livecheck/$formula-$version"
+            if gh pr list --head "$branch" --state all --json number \
+              | jq -e 'length > 0' >/dev/null; then
+              echo "PR for $branch already exists, skipping"
+              continue
+            fi
+            echo "Bumping $formula to $version"
+            git checkout -B "$branch" origin/main
+            brew bump-formula-pr "graelo/tap/$formula" \
+              --version "$version" \
+              --no-audit \
+              --no-browse \
+              --write-only
+            git commit -am "$formula $version"
+            git push -u origin "$branch"
+            gh pr create \
+              --title "$formula $version" \
+              --body "Automated version bump from livecheck. Label \`pr-pull\` to publish once bottles are built." \
+              --base main
+          done <<< "${OUTDATED}"
