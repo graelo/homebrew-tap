@@ -11,17 +11,23 @@ jobs:
   label:
     permissions:
       pull-requests: write
+    # Fork PRs are never auto-labelled: the `pr-pull` label makes publish.yml
+    # push bottles to main, so it stays a manual, reviewed decision.
     if: >-
       github.event.workflow_run.conclusion == 'success'
       && github.event.workflow_run.event == 'pull_request'
+      && github.event.workflow_run.head_repository.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Generate app token
         id: app-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ secrets.APP_CLIENT_ID }}
+          client-id: ${{ secrets.APP_CLIENT_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: graelo
+          repositories: homebrew-tap
+          permission-pull-requests: write
 
       - name: Add pr-pull label
         env:

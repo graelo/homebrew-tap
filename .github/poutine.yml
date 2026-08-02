@@ -1,0 +1,6 @@
+skip:
+  # Homebrew's own actions, used as upstream documents them (@main); pinning
+  # them would fight the brew test-bot / pr-pull flow.
+  - rule: github_action_from_unverified_creator_used
+    purl:
+      - pkg:githubactions/homebrew/actions

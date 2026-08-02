@@ -2,6 +2,10 @@ rules:
   dangerous-triggers:
     ignore:
       - publish.yml
+      # Needs workflow_run to learn that a PR's bottle build succeeded. It never
+      # checks out or executes PR code — it only reads the PR number and applies
+      # a label — and is gated on the PR coming from this repo, not a fork.
+      - auto-label-pr-pull.yml
   unpinned-uses:
     ignore:
       - publish.yml
