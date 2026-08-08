@@ -1,8 +1,8 @@
 class Podfeed < Formula
   desc "Podcasts feed generator"
   homepage "https://github.com/graelo/podfeed"
-  url "https://github.com/graelo/podfeed/archive/refs/tags/v0.3.4.tar.gz"
-  sha256 "24c57fce6ebe5336604e5713295e2653a3a34116c7466e82e121663c9f4789bd"
+  url "https://github.com/graelo/podfeed/archive/refs/tags/v0.3.5.tar.gz"
+  sha256 "444c1b0cf279a4d6137891a0ee762349ed55f58294345027b2c1f5565fd0d4c7"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
