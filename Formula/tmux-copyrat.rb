@@ -1,8 +1,8 @@
 class TmuxCopyrat < Formula
   desc "Highlight and copy pattern-matched text from tmux panes"
   homepage "https://github.com/graelo/tmux-copyrat"
-  url "https://github.com/graelo/tmux-copyrat/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "101289b358889b9ffc64efc96d72d61afeeab326f27f2a683b4a15235db5ec31"
+  url "https://github.com/graelo/tmux-copyrat/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "9283f99bcac5d893bfa3a3eeddc575ffa78d64df978b239ee14055607c6234e8"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
