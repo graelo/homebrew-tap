@@ -24,6 +24,9 @@ jobs:
           mkdir -p "$(brew --repository)/Library/Taps/graelo"
           ln -sfn "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/graelo/homebrew-tap"
 
+      - name: Trust this tap
+        run: brew trust graelo/tap
+
       - name: Livecheck all casks
         id: livecheck
         env:
@@ -110,6 +113,9 @@ jobs:
         run: |
           mkdir -p "$(brew --repository)/Library/Taps/graelo"
           ln -sfn "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/graelo/homebrew-tap"
+
+      - name: Trust this tap
+        run: brew trust graelo/tap
 
       - name: Livecheck all formulae
         id: livecheck

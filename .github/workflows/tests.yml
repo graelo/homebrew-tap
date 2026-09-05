@@ -54,8 +54,6 @@ jobs:
           - os: ${{ needs.detect-runner-os.outputs.macos-only == 'true' && 'ubuntu-latest' || 'excluded-noop' }}
           - os: ${{ needs.detect-runner-os.outputs.macos-only == 'true' && 'ubuntu-24.04-arm' || 'excluded-noop' }}
     runs-on: ${{ matrix.os }}
-    env:
-      HOMEBREW_NO_REQUIRE_TAP_TRUST: 1
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -80,6 +78,9 @@ jobs:
           sudo sysctl -w kernel.unprivileged_userns_clone=1 || true
           sudo sysctl -w user.max_user_namespaces=28633
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+
+      - name: Trust this tap
+        run: brew trust graelo/tap
 
       - run: brew test-bot --only-cleanup-before
 
