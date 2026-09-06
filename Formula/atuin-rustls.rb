@@ -10,6 +10,11 @@ class AtuinRustls < Formula
     strategy :github_latest
   end
 
+  bottle do
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/atuin-rustls-18.21.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "08a48d1c9844d5a1ff0ef3c0f43f58e4e799d18dea38476d4305356fc26e8a94"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
