@@ -55,12 +55,12 @@ diff --git a/Cargo.toml b/Cargo.toml
 index 0000000..0000000 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -102,7 +102,7 @@
-
- [workspace.dependencies.reqwest]
- version = "0.13"
--features = ["json", "native-tls", "stream", "gzip", "zstd"]
-+features = ["json", "rustls", "stream", "gzip", "zstd"]
- default-features = false
-
- [workspace.dependencies.sqlx]
+@@ -116,7 +116,7 @@ regex = "1.10.5"
+ reqwest = {
+     version = "0.13",
+     default-features = false,
+-    features = ["json", "native-tls", "stream", "gzip", "zstd"],
++    features = ["json", "rustls", "stream", "gzip", "zstd"],
+ }
+ reqwest-middleware = "0.5"
+ rmcp = { version = "2.1.0", default-features = false, features = ["server", "transport-io"] }
