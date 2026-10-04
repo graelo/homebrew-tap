@@ -6,10 +6,10 @@ class Obscura < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/obscura-0.2.3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "7c8efa3110fc55d5ebb8b45a333743ec48a07a9bed9269dfb0afd68815d00b1f"
-    sha256 cellar: :any,                 arm64_linux:  "5646ae51c7bc924b5c1132fe2b83d83adeb814039c89ee5c1e884619cd016555"
-    sha256 cellar: :any,                 x86_64_linux: "eb6747e65655c702420f3d40c967dd5fcdfea4ba1c4be540ef251955445a6d6b"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/obscura-0.2.4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "1b5ccbf72bdbde52bec7d7fff831bf33612d5f9ad3ec76512aff0b5c9878be09"
+    sha256 cellar: :any,                 arm64_linux:  "9e3118e49f3372e5b4fe626d6fca4883c8abc721b2f7796341412761bea580d6"
+    sha256 cellar: :any,                 x86_64_linux: "40c0b66f31c9364526d2120b265c1b6640287b7952287bcc81deb7affe7cb388"
   end
 
   depends_on "rust" => :build
