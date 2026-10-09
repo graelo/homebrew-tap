@@ -12,10 +12,10 @@ class LeanCtx < Formula
   end
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/lean-ctx-3.10.5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "717193e603fad1050aa56c8253434f094f8b777d03c070d20e9f61f97ca9be61"
-    sha256 cellar: :any,                 arm64_linux:  "4aae77ee091a5c1cb508c0d0254ddd7b2a040c8884bc57577365927d5e5aedbe"
-    sha256 cellar: :any,                 x86_64_linux: "55e3efbdb73dcb8490034ba010f066d929111c7b3fed6f1b3b0b27ae68289512"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/lean-ctx-3.11.2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "5d2d05a7096b2eee8a6937a5133903ae23fdbaf8a90736f7526db8ca1a631ba7"
+    sha256 cellar: :any,                 arm64_linux:  "c3cf57396cd06a51e471c315d849099a156eb7e72b4e5a80258ffe4b2777471e"
+    sha256 cellar: :any,                 x86_64_linux: "a5739f32f82d2202f77d71eb149af944ed6552533c12c6d8032168b75ae642c1"
   end
 
   depends_on "rust" => :build
