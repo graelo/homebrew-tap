@@ -1,8 +1,8 @@
 class ToonFormatRs < Formula
   desc "Token-efficient, human-readable format for LLM prompts"
   homepage "https://github.com/toon-format/toon-rust"
-  url "https://github.com/toon-format/toon-rust/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "4a4479bad7fe7d081585f958f7de5c078205a2851bbfaf1068174b46b927ec29"
+  url "https://github.com/toon-format/toon-rust/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "5184701e468819a90e9e23503abc9ed71307c8ab27e578621a956a2174dd1b8a"
   license "MIT"
 
   bottle do
