@@ -6,10 +6,10 @@ class ToonFormatRs < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/toon-format-rs-0.6.1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "364e8c32fbf47718f781c231ce937ef66355006b80f9d95a7ddc41d5e45bd83f"
-    sha256 cellar: :any,                 arm64_linux:  "df0325822fe3f68b195d5e9ae3243fe8c4e9efd4dba44be2378a0c143e51086f"
-    sha256 cellar: :any,                 x86_64_linux: "c60388cc0b75c5ae8dd3b6f6f4133a3ba7e7e0a64d28e96a654565998973cfba"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/toon-format-rs-0.7.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "283a37154a2c4aaeb86bf5ff75ba0ac6b765c5af0410c3af08d96b4bdee4d298"
+    sha256 cellar: :any,                 arm64_linux:  "0aea3bfbb6e1cedf8d8e17f00ccb3478a0c64c30aecbae352ebe7160a78887b2"
+    sha256 cellar: :any,                 x86_64_linux: "e897496db3db5575b68bea6e81accac024bd5d1095ae116e5031236126674867"
   end
 
   depends_on "rust" => :build
