@@ -1,8 +1,8 @@
 class AtuinRustls < Formula
   desc "Improved shell history for zsh, bash, fish and nushell (rustls TLS backend)"
   homepage "https://atuin.sh/"
-  url "https://github.com/atuinsh/atuin/releases/download/v18.23.0/source.tar.gz"
-  sha256 "64b4b9b0f84ef34bcfa88e992d38cc0b95d3cf1f6d470bb695d3ef0231445b26"
+  url "https://github.com/atuinsh/atuin/releases/download/v18.24.0/source.tar.gz"
+  sha256 "ea0509b52f41b4accba22890ed04279f230cea4f2816395f4a7a30c08b51d3ce"
   license "MIT"
 
   livecheck do
@@ -55,12 +55,12 @@ diff --git a/Cargo.toml b/Cargo.toml
 index 0000000..0000000 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -116,7 +116,7 @@ regex = "1.10.5"
- reqwest = {
-     version = "0.13",
-     default-features = false,
--    features = ["json", "native-tls", "stream", "gzip", "zstd"],
-+    features = ["json", "rustls", "stream", "gzip", "zstd"],
- }
+@@ -116,7 +116,7 @@
+ ratatui = "0.30"
+ ratatui-core = "0.1"
+ regex = "1"
+-reqwest = { version = "0.13", default-features = false, features = ["json", "native-tls", "stream", "gzip", "zstd"] }
++reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "stream", "gzip", "zstd"] }
  reqwest-middleware = "0.5"
- rmcp = { version = "2.1.0", default-features = false, features = ["server", "transport-io"] }
+ rmcp = { version = "3", default-features = false, features = ["server", "transport-io", "schemars"] }
+ rmp = "0.8"
