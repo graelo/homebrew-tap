@@ -1,8 +1,8 @@
 class AtuinRustls < Formula
   desc "Improved shell history for zsh, bash, fish and nushell (rustls TLS backend)"
   homepage "https://atuin.sh/"
-  url "https://github.com/atuinsh/atuin/releases/download/v18.24.2/source.tar.gz"
-  sha256 "1b52539da5d55962dc284fa10a78cf5dccc2961fd32af6812bf3d5969f632d9e"
+  url "https://github.com/atuinsh/atuin/releases/download/v18.24.4/source.tar.gz"
+  sha256 "4106e8841321b8702497b2e84075706b7b14ddcf9401d4e638b338dc555e1fce"
   license "MIT"
 
   livecheck do
