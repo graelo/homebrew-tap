@@ -21,7 +21,9 @@ class LeanCtx < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "rust")
+    # Upstream v3.12.1 turned `rust/` into a library-only workspace root
+    # (lean-ctx-engine); the `lean-ctx` binary crate lives in crates/lean-ctx.
+    system "cargo", "install", *std_cargo_args(path: "rust/crates/lean-ctx")
   end
 
   test do
