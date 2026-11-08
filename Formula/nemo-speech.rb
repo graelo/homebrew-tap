@@ -15,15 +15,7 @@ class NemoSpeech < Formula
   depends_on "abseil"
   depends_on "sentencepiece"
 
-  # CPU builds apply upstream's ggml/llama.cpp patch series at configure time,
-  # which needs git.
-  on_macos do
-    on_intel do
-      depends_on "git" => :build
-    end
-  end
   on_linux do
-    depends_on "git" => :build
     depends_on "patchelf" => :build
   end
 
@@ -35,6 +27,14 @@ class NemoSpeech < Formula
     url "https://github.com/ggml-org/llama.cpp/archive/bd4f514db14d87fded667787a7a963bfbaa98e89.tar.gz"
     sha256 "b02af830447d56db65f6579414dee3c06d9d116cc1765d2539417ee8a7ff1dfa"
   end
+
+  # Upstream's ELF branch links any system libsentencepiece.a it finds, but
+  # Homebrew's static archive references libprotobuf and abseil, which that
+  # path does not link, leaving undefined protobuf symbols in the nemo_speech
+  # libraries at runtime. Restrict the static search to the project-built
+  # archive (as the Apple branch already does) so the shared libsentencepiece
+  # with its abseil linkage is used instead.
+  patch :DATA
 
   def install
     resource("llama.cpp").stage(buildpath/"llama.cpp")
@@ -120,3 +120,18 @@ class NemoSpeech < Formula
     assert_equal true, doctor["features"]["backend_metal"] if OS.mac? && Hardware::CPU.arm?
   end
 end
+
+__END__
+diff --git a/cmake/sentencepiece.cmake b/cmake/sentencepiece.cmake
+--- a/cmake/sentencepiece.cmake
++++ b/cmake/sentencepiece.cmake
+@@ -11,7 +11,8 @@
+         set(_NEMO_SPEECH_LIBRARY_SUFFIXES "${CMAKE_FIND_LIBRARY_SUFFIXES}")
+         set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+         find_library(SENTENCEPIECE_STATIC_LIB sentencepiece
+-            HINTS "${NEMO_SPEECH_DEPENDENCY_PREFIX}/sentencepiece/lib")
++            PATHS "${NEMO_SPEECH_DEPENDENCY_PREFIX}/sentencepiece/lib"
++            NO_DEFAULT_PATH)
+         set(CMAKE_FIND_LIBRARY_SUFFIXES "${_NEMO_SPEECH_LIBRARY_SUFFIXES}")
+         unset(_NEMO_SPEECH_LIBRARY_SUFFIXES)
+     elseif(APPLE)
