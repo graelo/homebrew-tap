@@ -10,6 +10,13 @@ class NemoSpeech < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/nemo-speech-0.3.0"
+    sha256 cellar: :any, arm64_tahoe:  "09f7231282f6301f1c435491370e1fc478911d6f01bf7a5004b5e854b86b11c0"
+    sha256 cellar: :any, arm64_linux:  "68e1f8e4c2617804ef8b0efde9ccb330bd19e44ffd260746ebffaf36e0ad1b4a"
+    sha256 cellar: :any, x86_64_linux: "6d8f0283c80fc9b0912229d346caa72d6a88cf8486bcde94097b3ef77e8afb28"
+  end
+
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "abseil"
