@@ -6,10 +6,10 @@ class Podfeed < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    root_url "https://github.com/graelo/homebrew-tap/releases/download/podfeed-0.3.5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "bfacbdc5b6e547be1ff869438833535493b06386159416bd20f18ec489c12ba1"
-    sha256 cellar: :any,                 arm64_linux:  "92bf66dfdd1c2eb732ae00452179f72507359fe82bc9d7ff46e1a6d68afe3dc7"
-    sha256 cellar: :any,                 x86_64_linux: "484ac49c4ffafead1399e9c2b16f11108164c43dfcf17019fb9786c15e81fbab"
+    root_url "https://github.com/graelo/homebrew-tap/releases/download/podfeed-0.3.6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "1c547618f1fcfe32d1f511b3a9834c23351b8263ac64157274c0bd7b90de260b"
+    sha256 cellar: :any,                 arm64_linux:  "871ad34c26315e616ccae03f941c3e2a95e39cd0404d726bddcb150745885c4f"
+    sha256 cellar: :any,                 x86_64_linux: "41aa99d47a01f4aa26347e771e8089f171e1fddd8b65312aef2d83f86ad6f280"
   end
 
   depends_on "rust" => [:build, :test]
