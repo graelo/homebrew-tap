@@ -4,6 +4,7 @@ class AtuinRustls < Formula
   url "https://github.com/atuinsh/atuin/releases/download/v18.25.1/source.tar.gz"
   sha256 "ee4114ceada5d0acf000b306a1a1479ba6dd1f9fec69612f511a013ffa6fcd12"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,7 +27,8 @@ class AtuinRustls < Formula
   # TLS 1.3 support at all, so it silently falls back to 1.2 or fails outright
   # against TLS-1.3-only servers. Switch reqwest to rustls, which has no such
   # cap on any platform and still verifies against the system root store via
-  # rustls-platform-verifier.
+  # rustls-platform-verifier. Switch rmcp's reqwest feature as well: Cargo
+  # unifies features, and reqwest prefers native-tls when both are enabled.
   patch :DATA
 
   def install
@@ -55,12 +57,13 @@ diff --git a/Cargo.toml b/Cargo.toml
 index 0000000..0000000 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
-@@ -116,7 +116,7 @@
- ratatui = "0.30"
- ratatui-core = "0.1"
+@@ -121,9 +121,9 @@
+ ref-cast = "1"
  regex = "1"
 -reqwest = { version = "0.13", default-features = false, features = ["json", "native-tls", "stream", "gzip", "zstd"] }
 +reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "stream", "gzip", "zstd"] }
  reqwest-middleware = "0.5"
- rmcp = { version = "3", default-features = false, features = ["server", "transport-io", "schemars"] }
+-rmcp = { version = "3", default-features = false, features = ["server", "transport-io", "schemars", "client", "transport-streamable-http-client-reqwest", "reqwest-native-tls"] }
++rmcp = { version = "3", default-features = false, features = ["server", "transport-io", "schemars", "client", "transport-streamable-http-client-reqwest", "reqwest"] }
  rmp = "0.8"
+ rmp-serde = "1"
