@@ -1,8 +1,8 @@
 class LeanCtx < Formula
   desc "Context Engineering Layer for AI Coding"
   homepage "https://leanctx.com"
-  url "https://github.com/yvgude/lean-ctx/releases/download/v3.12.7/lean-ctx-3.12.7-source.tar.gz"
-  sha256 "e5ec3bef7257e33bd171f4a71f233a719bc8072ea963014044190e5f9f473f85"
+  url "https://github.com/yvgude/lean-ctx/releases/download/v3.12.8/lean-ctx-3.12.8-source.tar.gz"
+  sha256 "94bc455c6014a74e992d4e8cfe123f5d85a776f59473559e8a891b98442c401d"
   license "Apache-2.0"
 
   # Upstream carries non-version tags (dates, branch names), so match semver only.
